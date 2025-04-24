@@ -38,19 +38,9 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.all(8),
               child: ElevatedButton(
                 onPressed: () {
-                  // Close the screen and return "Nope." as the result.
-                  Navigator.pop(context, 'Nope.');
-                },
-                child: const Text('Nope.'),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8),
-              child: ElevatedButton(
-                onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => ListViewScreen(
                     todos: List.generate(
-                      20,
+                      5,
                           (i) => Todo(
                         'Todo $i',
                         'A description of what needs to be done for Todo $i',

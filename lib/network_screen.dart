@@ -4,13 +4,15 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-Future<Album> fetchAlbum() async {
+import 'my_album.dart';
+
+Future<MyAlbum> fetchAlbum() async {
   final response = await http.get(
     Uri.parse('https://jsonplaceholder.typicode.com/albums/1'),
   );
 
   if (response.statusCode == 200) {
-    return Album.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
+    return myAlbumFromJson(response.body);
   } else {
     throw Exception('Failed to load album');
   }
@@ -43,7 +45,7 @@ class NetworkScreen extends StatefulWidget {
 }
 
 class _NetworkScreenState extends State<NetworkScreen> {
-  late Future<Album> futureAlbum;
+  late Future<MyAlbum> futureAlbum;
 
   @override
   void initState() {
@@ -56,7 +58,7 @@ class _NetworkScreenState extends State<NetworkScreen> {
     return Scaffold(
         appBar: AppBar(title: const Text('Fetch Data Example')),
         body: Center(
-          child: FutureBuilder<Album>(
+          child: FutureBuilder<MyAlbum>(
             future: futureAlbum,
             builder: (context, snapshot) {
               if (snapshot.hasData) {

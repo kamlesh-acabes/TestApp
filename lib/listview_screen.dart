@@ -22,17 +22,20 @@ class ListViewScreen extends StatelessWidget {
           return ListTile(
             title: Text(todos[index].title),
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DetailScreen(todo: todos[index]),
-                ),
-              );
-            },
+              _navigateToDetailScreen(context, todos[index]);
+            }
           );
         },
       ),
     );
+  }
+
+  void _navigateToDetailScreen(BuildContext context, Todo todo) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => DetailScreen(todo: todo),
+      ),);
   }
 }
 

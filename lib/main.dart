@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'article_screen.dart';
 import 'first_screen.dart';
 import 'listview_screen.dart';
 import 'network_screen.dart';
@@ -58,6 +59,15 @@ class HomeScreen extends StatelessWidget {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => NetworkScreen()),);
                 },
                 child: const Text('Network Screen'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ArticleScreen()),);
+                },
+                child: const Text('News Article'),
               ),
             ),
           ],

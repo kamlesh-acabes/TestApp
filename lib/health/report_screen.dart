@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:testapp/health/report_header.dart';
+import 'package:testapp/health/report_info_screen.dart';
 
 import 'constants.dart';
 import 'counter.dart';
@@ -194,6 +195,17 @@ class _ReportScreenState extends State<ReportScreen> {
                       "assets/images/map.png",
                       fit: BoxFit.contain,
                     ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return ReportInfoScreen();
+                          },),);
+                    },
+                    child: Text("Clickable text"),
                   ),
                 ],
               ),

@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:testapp/health/report_screen.dart';
+import 'package:testapp/login/welcome_screen.dart';
+import 'package:testapp/shopper/models/cart.dart';
+import 'package:testapp/shopper/models/catalog.dart';
+import 'package:testapp/shopper/screens/catalog_screen.dart';
 
 import 'article_screen.dart';
 import 'bottom_navigation_screen.dart';
@@ -10,13 +15,33 @@ import 'listview_screen.dart';
 import 'network_screen.dart';
 
 void main() {
-  runApp(
-      const MaterialApp(
+  runApp(HomeApp());
+}
+
+class HomeApp extends StatelessWidget {
+  const HomeApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        Provider(create: (context) => CatalogModel()),
+        ChangeNotifierProxyProvider<CatalogModel, CartModel>(
+          create: (context) => CartModel(),
+          update: (context, catalog, cart) {
+            if (cart == null) throw ArgumentError.notNull('cart');
+            cart.catalog = catalog;
+            return cart;
+          },
+        ),
+      ],
+      child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'TestApp',
         home: HomeScreen(),
       ),
-  );
+    );
+  }
 }
 
 class HomeScreen extends StatelessWidget {
@@ -107,6 +132,24 @@ class HomeScreen extends StatelessWidget {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => ActionSheetApp()),);
                 },
                 child: const Text('Cupertino Controls'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 30),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => WelcomeScreen()),);
+                },
+                child: const Text('Login Screen'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 30),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => CatalogScreen()),);
+                },
+                child: const Text('Catalog Screen'),
               ),
             ),
           ],

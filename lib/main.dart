@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'article_screen.dart';
+import 'bottom_navigation_screen.dart';
+import 'extension_screen.dart';
 import 'first_screen.dart';
 import 'listview_screen.dart';
 import 'network_screen.dart';
@@ -23,8 +25,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Home Screen'), centerTitle: true,),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(8),
@@ -68,6 +69,24 @@ class HomeScreen extends StatelessWidget {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => ArticleScreen()),);
                 },
                 child: const Text('News Article'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ExtensionScreen()),);
+                },
+                child: const Text('Extension Screen'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigationBarExampleApp()),);
+                },
+                child: const Text('Bottom Navigation'),
               ),
             ),
           ],

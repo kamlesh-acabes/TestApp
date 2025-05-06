@@ -35,9 +35,10 @@ class HomeApp extends StatelessWidget {
           },
         ),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'TestApp',
+        theme: ThemeData.light(),
         home: HomeScreen(),
       ),
     );

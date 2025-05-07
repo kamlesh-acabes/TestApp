@@ -1,0 +1,13 @@
+{
+  "homeTitle": "Flutter Sample",
+  "firstScreen": "First Screen",
+  "listView": "ListView Screen",
+  "networkScreen": "Network Screen",
+  "newsArticle": "News Article",
+  "extensionScreen": "Extension Screen",
+  "bottomNavigationBar": "Bottom Navigation",
+  "healthReport": "Health Report",
+  "cupertinoControls": "Cupertino Controls",
+  "loginScreen": "Login Screen",
+  "catalogScreen": "Catalog Screen"
+}

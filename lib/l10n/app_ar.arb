@@ -1,0 +1,13 @@
+{
+  "homeTitle": "مثال فلاتر",
+  "firstScreen": "الشاشة الأولى",
+  "listView": "شاشة عرض القائمة",
+  "networkScreen": "شاشة الشبكة",
+  "newsArticle": "مقالة إخبارية",
+  "extensionScreen": "شاشة الامتداد",
+  "bottomNavigationBar": "شريط التنقل السفلي",
+  "healthReport": "تقرير صحي",
+  "cupertinoControls": "عناصر تحكم كوبرتينو",
+  "loginScreen": "شاشة تسجيل الدخول",
+  "catalogScreen": "شاشة الكتالوج"
+}

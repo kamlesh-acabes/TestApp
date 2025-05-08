@@ -6,7 +6,7 @@ class ActionSheetApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const CupertinoApp(
-      theme: CupertinoThemeData(brightness: Brightness.light),
+      debugShowCheckedModeBanner: false,
       home: ActionSheetExample(),
     );
   }
@@ -101,6 +101,10 @@ class ActionSheetExample extends StatelessWidget {
                 CupertinoButton(
                   onPressed: () => _showAlertDialog(context),
                   child: const Text('CupertinoDialog'),
+                ),
+                CupertinoButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text('Close Screen'),
                 ),
               ],
           ),
